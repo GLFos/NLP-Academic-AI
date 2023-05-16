@@ -8,7 +8,7 @@ import json
 # Web address once running is " http://localhost:8983/solr/ "
 # Command to stop solr "solr stop -p 8983"
 
-pyalex.config.email = "garrisonlukefoster@outlook.com"
+pyalex.config.email = "example@email.com"
 
 Random_Works_Url = 'http://api.openalex.org/works?sample=100&per-page=100'
 

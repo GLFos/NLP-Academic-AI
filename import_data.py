@@ -6,7 +6,7 @@ import json
 
 # Solr Startup command on cmd is "solr start -p 8983"
 # Web address once running is " http://localhost:8983/solr/ "
-
+# Command to stop solr "solr stop -p 8983"
 
 pyalex.config.email = "garrisonlukefoster@outlook.com"
 
@@ -40,7 +40,7 @@ with open('output.txt', 'w', encoding='utf-8') as f:
     for result in formatted_results:
         f.write("{\n")
         f.write(f'  "id": "{current_id}",\n')
-        f.write(f'  "Title": "{result["Title"]}",\n')
+        f.write(f'  "title": "{result["Title"]}",\n')
         f.write(f'  "author": "{result["Authors"]}",\n')
         f.write(f'  "publication_year": "{result["Publication Year"]}",\n')
         f.write(f'  "language": "{result["Language"]}"\n')

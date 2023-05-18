@@ -5,9 +5,6 @@ import tensorflow as tf
 import logging
 import nltk
 
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
-
 logging.getLogger("transformers").setLevel(logging.WARNING)
 
 summarizing_model = "t5-base"
@@ -16,7 +13,7 @@ tokenizer = AutoTokenizer.from_pretrained(summarizing_model, model_max_length=10
 
 #article_urls = ["https://www.annualreviews.org/doi/abs/10.1146/annurev.so.13.080187.001021"]
 text_file = "C:\\Users\\GLFos\\Documents\\Abstract.txt"
-with open(text_file, "r") as file:
+with open(text_file, "r", encoding="utf-8") as file:
     text = file.read()
 
 '''

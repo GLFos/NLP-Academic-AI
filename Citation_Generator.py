@@ -44,7 +44,7 @@ def MLA_citation_generator():
     mla_citation += "."  # Add period at the end
     print(f"{citation_counter}. {mla_citation}")
 
-
+MLA_citation_generator()
 
 # APA Citation Generator
 

@@ -91,6 +91,7 @@ def APA_citation_generator():
     ]
 
     apa_citation = " ".join(part for part in citation_parts if part)
+    apa_citation += "."
     print(f"{citation_counter}. {apa_citation}")
 
 APA_citation_generator()

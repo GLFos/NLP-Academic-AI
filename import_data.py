@@ -4,6 +4,8 @@ import requests
 import pprint
 import json
 
+#This was an old manual way to get OpenAlex documents in the JSON format for solr. Thankfully, automated_api_input.py does this all for us automatically. Saves like a full day of this.
+
 # Solr Startup command on cmd is "solr start -p 8983"
 # Web address once running is " http://localhost:8983/solr/ "
 # Command to stop solr "solr stop -p 8983"

@@ -3,6 +3,8 @@ import pyalex
 import pysolr
 import json
 
+#This automatically fills the Solr directory with random documents pulled from OpenAlex. It also assigns the proper schema to the data for use in the search engine.
+
 pyalex.config.email = "garrisonlukefoster@outlook.com"
 
 random_work_url = 'http://api.openalex.org/works?sample=14&per-page=14'

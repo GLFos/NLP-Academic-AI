@@ -1,5 +1,6 @@
 
 # New MLA generator with variances
+#There is also a citation counter for simple copy/pasting in one's bibliography.
 
 citation_counter = 0
 

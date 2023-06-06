@@ -1,5 +1,6 @@
 from readability import Readability
 
+#These two reading difficulty indexes measure the complexity of a given document. Flesch-Kincaid for Middle/High, Gunning Fog for college. 
 text = "C:\\Users\\GLFos\\Documents\\HighSchool.txt"
 
 with open(text, "r", encoding="utf-8") as file:

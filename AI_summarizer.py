@@ -5,6 +5,8 @@ import tensorflow as tf
 import logging
 import nltk
 
+#For the sake of simplicity, this can alternate between direct text and articles on the web. When fully developed, there will be a simple way to use either in the UI. 
+
 logging.getLogger("transformers").setLevel(logging.WARNING)
 
 summarizing_model = "t5-base"
@@ -32,7 +34,7 @@ elif 1000 <= abstract_length < 2000:
 else:
     max_summary_length = 100
 
-#Remeber to change text_file when going back to articles!
+#Remeber to change text_file when going back to articles! Lines 16-17
 inputs = tokenizer.encode(text, return_tensors="tf")
 inputs = tf.reshape(inputs, (1, -1))
 outputs = model.generate(inputs, max_length=max_summary_length)

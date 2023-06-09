@@ -1,8 +1,6 @@
 from transformers import TFAutoModelForSeq2SeqLM, AutoTokenizer
-import requests
 from bs4 import BeautifulSoup
 import tensorflow as tf
-import logging
 import nltk
 
 class Summarizer:

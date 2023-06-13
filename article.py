@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 
+# This class handles the articles provided by the user. It is able to differentiate between URLs, files, and text entries.
+
 class Article:
     def __init__(self, source):
         self.source = source

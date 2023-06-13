@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 import tensorflow as tf
 import nltk
 
+#This is an older summarizer that uses the TFAutoModel transformer. I keep it for documentation, but it is currently not in use. 
+
 class Summarizer:
     def __init__(self):
         self.summarizing_model = "t5-base"

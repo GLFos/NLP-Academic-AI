@@ -2,6 +2,8 @@ from article import Article
 from bart import BARTSummarizer
 from keywords import Custom_Keyword_Extract
 
+#This is the compilation of all three main classes.
+
 summarizer = BARTSummarizer()
 keyword_extractor = Custom_Keyword_Extract()
 

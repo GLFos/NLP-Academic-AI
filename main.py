@@ -7,7 +7,7 @@ from keywords import Custom_Keyword_Extract
 summarizer = BARTSummarizer()
 keyword_extractor = Custom_Keyword_Extract()
 
-article_content = "https://apnews.com/article/pandemic-fraud-waste-billions-small-business-labor-fb1d9a9eb24857efbe4611344311ae78"
+article_content = input("Enter your URL, file, or text: ")
 
 article = Article(article_content)
 article.fetch_text()

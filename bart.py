@@ -16,7 +16,9 @@ class BARTSummarizer:
         except Exception as e:
             print(f"An error has occured during summarization: {str(e)}")
             return None
+        
     # This section is designed to handle large amounts of text automatically. It will split content at the threshold and summarize it separately, appending it to the final summary.
+    
     def summarize_large_text(self, text):
         chunks = [text[i : i + 1024] for i in range(0, len(text), 1024)]
         summaries = []

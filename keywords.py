@@ -4,7 +4,7 @@ import yake
 
 language = "en"
 max_ngram_size = 2
-deduplication_threshold = 0.9
+deduplication_threshold = 0.7
 deduplication_algo = "seqm"
 numOfKeywords = 4
 

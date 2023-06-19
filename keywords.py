@@ -1,9 +1,9 @@
 import yake
 
-# Simple keyword extractor using Yake, this finds 4 prominent keywords with a max of two engrams per keyword.
+# Simple keyword extractor using YAKE, this finds 4 prominent keywords with a max of one engram per keyword.
 
 language = "en"
-max_ngram_size = 2
+max_ngram_size = 1
 deduplication_threshold = 0.7
 deduplication_algo = "seqm"
 numOfKeywords = 4

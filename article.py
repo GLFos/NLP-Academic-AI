@@ -1,6 +1,9 @@
 import requests
 from readability import Document
 from bs4 import BeautifulSoup
+import concurrent.futures
+
+max_cores = 2
 
 class Article:
     def __init__(self, source):
@@ -25,7 +28,16 @@ class Article:
         response = requests.get(self.source)
         html_content = response.text
 
-        document = Document(html_content)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_cores) as executor:
+            futures = [
+                executor.submit(self.process_html_content, html_content),
+                executor.submit(self.extract_article_text, html_content)
+            ]
+            concurrent.futures.wait(futures)
+
+            processed_html_content = [future.result() for future in futures]
+
+        document = Document(processed_html_content)
         article_html = document.summary()
 
         soup = BeautifulSoup(article_html, "html.parser")

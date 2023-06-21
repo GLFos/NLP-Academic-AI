@@ -1,0 +1,7 @@
+beautifulsoup4
+readability-lxml
+requests
+tensorflow
+tqdm
+transformers
+yake

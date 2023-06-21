@@ -13,7 +13,7 @@ more complex papers.
 
 Citation generation for quick, easy citations in both MLA and APA formats. The user is prompted for each section of a citation, which is then formatted correctly and given in the desired style. 
 
-
+Pinpointing keywords throughout a document to nail central themes.
 
 **Planned:**
 Automatic citation for with the use of links. This will come as we expand more into HTML integration.
@@ -26,7 +26,6 @@ How many citations are within a given document and how many times a document has
 
 Excel compatability for summaries and organization of research.
 
-Pinpointing keywords throughout a document to nail central themes.
 
 Contextual critcism. This is the most complex, but the most exciting aspect of the project. The goal is to be able to pinpoint other cited works within a document (especially historical ones) and provide deeper
 context through dates, country of origin, authorship, and ideologies. We hope to bring new insights through research that is openly accessible. 

@@ -1,6 +1,7 @@
 import tensorflow as tf
 from transformers import TFBartForConditionalGeneration, BartTokenizer
 import concurrent.futures
+import tqdm
 
 max_cores = 2
 
@@ -30,7 +31,7 @@ class BARTSummarizer:
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_cores) as executor:
             futures = [executor.submit(self.summarize, chunk) for chunk in chunks]
-            for future in concurrent.futures.as_completed(futures):
+            for future in tqdm.tqdm(concurrent.futures.as_completed(futures), total=len(futures)):
                 try:
                     summary = future.result()
                     if summary:

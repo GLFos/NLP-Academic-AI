@@ -6,7 +6,7 @@ language = "en"
 max_ngram_size = 1
 deduplication_threshold = 0.7
 deduplication_algo = "seqm"
-numOfKeywords = 4
+numOfKeywords = 3
 
 class Custom_Keyword_Extract:
     def __init__(self):

@@ -11,7 +11,7 @@ class SummarizerUI:
         self.keyword_extractor = Custom_Keyword_Extract()
 
         # UI elements
-        self.label = tk.Label(root, text="Enter your URL, file, or text:")
+        self.label = tk.Label(root, text="Paste your URL or raw text here:")
         self.label.pack()
 
         self.entry = tk.Entry(root)
@@ -61,7 +61,7 @@ class SummarizerUI:
 
 def main():
     root = tk.Tk()
-    root.title("REC Alpha")
+    root.title("REC (Alpha)")
 
     summarizer_ui = SummarizerUI(root)
 

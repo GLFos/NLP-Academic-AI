@@ -2,9 +2,6 @@ import requests
 from readability import Document
 from bs4 import BeautifulSoup
 from docx import Document
-import concurrent.futures
-
-max_cores = 2
 
 class Article:
     def __init__(self, source):
@@ -13,7 +10,7 @@ class Article:
 
     def fetch_text(self):
         if self.is_url():
-            self.fetch_text_from_url()
+            self.extract_text_from_wikipedia()
         elif self.is_file():
             self.fetch_text_from_file()
         else:
@@ -25,23 +22,22 @@ class Article:
     def is_file(self):
         return isinstance(self.source, str) and (self.source.endswith(".txt") or self.source.endswith(".docx"))
 
-    def process_html_content(self, html_content):
-        soup = BeautifulSoup(html_content, 'html.parser')
-        self.text = self.extract_article_text(soup)
+    def extract_text_from_wikipedia(self):
+        page_title = self.source.split('/')[-1]
 
-    def extract_article_text(self, soup):
-        return ""
+        api_endpoint = f"https://en.wikipedia.org/api/rest_v1/page/summary/{page_title}"
 
-    def fetch_text_from_url(self):
-        response = requests.get(self.source)
-        html_content = response.text
+        response = requests.get(api_endpoint)
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=max_cores) as executor:
-            future = executor.submit(self.process_html_content, html_content)
-            concurrent.futures.wait([future])
+        if response.status_code == 200:
+            page_data = response.json()
 
-        article_text = self.extract_text_from_html(html_content)
-        self.set_text(article_text)
+            if 'extract' in page_data:
+                self.set_text(page_data['extract'])
+            else:
+                self.set_text("Error: Unable to extract article text.")
+        else:
+            self.set_text("Error: Failed to retrieve the Wikipedia page.")
 
     def fetch_text_from_file(self):
         if self.source.endswith(".txt"):
@@ -52,16 +48,8 @@ class Article:
             paragraphs = [paragraph.text for paragraph in document.paragraphs]
             self.set_text("\n".join(paragraphs))
 
-    def extract_text_from_html(self, html):
-        document = Document(html)
-        article_html = document.summary()
-        soup = BeautifulSoup(article_html, "html.parser")
-        article_text = soup.get_text(separator=" ")
-        return article_text
-
     def set_text(self, text):
         self.text = text
 
     def get_text(self):
         return self.text
-

@@ -36,12 +36,12 @@ class SummarizerUI:
         self.another_button.pack()
 
     def process_input(self):
-        article_content = self.entry.get()
+        article_text = self.entry.get()
 
         # Process the input
-        article = Article(article_content)
+        article = Article(article_text)
         article.fetch_text()
-        content = article.get_text()
+        content = article.text
         summary = self.summarizer.summarize(content)
 
         # Update UI 
